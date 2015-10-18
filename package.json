@@ -2,7 +2,7 @@
   "name": "GLaDOS",
   "version": "0.0.0",
   "private": true,
-  "author": "Sumeet Singh <ortuna@gmail.com>",
+  "author": "Mobility Labs Team <sean@mobility-labs.com>",
   "description": "A simple helpful robot for your Company",
   "dependencies": {
     "Sentimental": "0.0.4",
@@ -19,8 +19,8 @@
     "hubot-rules": "^0.1.0",
     "hubot-scripts": "^2.16.2",
     "hubot-shipit": "^0.1.2",
-    "hubot-slack": "seanperkins/hubot-slack",
-    "hubot-sentimental": "seanperkins/hubot-sentimental",
+    "hubot-slack": "seanperkins/hubot-slack#43dbca7",
+    "hubot-sentimental": "seanperkins/hubot-sentimental#0612f1",
     "hubot-youtube": "^0.1.2",
     "lodash": "^3.10.1",
     "redis": "^2.2.5"
