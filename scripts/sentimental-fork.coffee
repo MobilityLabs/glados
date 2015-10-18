@@ -82,12 +82,21 @@ module.exports = (robot) ->
             return ret
           )
           sorted = _.sortByOrder(combined, 'average', 'desc')
-          message = []
+          attachments = {
+            fallback: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average)}",
+            text: 'Happiness Index',
+            fields: []
+          }
+          users = []
+          averages = []
           for user, data of sorted
             if (data.user == username or username == "everyone") and data.average != undefined
               average = _.round(data.average, 2)
-              message.push "#{data.user} has happiness rating of #{average}"
-          msg.send(message.join('\n'))
+              users.push(data.user)
+              averages.push(average)
+          userField = {title: 'User', value: users.join('\n'), short: true}
+          happinessField = {title: 'Rating', value: averages.join('\n'), short: true}
+          attachments.fields.push(userField, happinessField)
+          msg.send({attachments: attachments})
       else
         msg.send "I haven't collected data on anybody yet"
-
