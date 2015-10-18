@@ -85,7 +85,8 @@ module.exports = (robot) ->
           attachments = {
             fallback: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average)}",
             text: 'Happiness Index',
-            fields: []
+            fields: [],
+            color: 'good'
           }
           users = []
           averages = []
@@ -97,6 +98,6 @@ module.exports = (robot) ->
           userField = {title: 'User', value: users.join('\n'), short: true}
           happinessField = {title: 'Rating', value: averages.join('\n'), short: true}
           attachments.fields.push(userField, happinessField)
-          msg.send({attachments: attachments})
+          msg.send({attachments: [attachments]})
       else
         msg.send "I haven't collected data on anybody yet"
