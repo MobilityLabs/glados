@@ -100,16 +100,16 @@ module.exports = (robot) ->
           attachment.fields.push(userField, happinessField)
           // msg.send({attachments: [attachment]})
           msg.send({
-              "attachments": [
-                  {
-                      "fallback": "Network traffic (kb/s): How does this look? @slack-ops - Sent by Julie Dodd - https://datadog.com/path/to/event",
-                      "title": "Network traffic (kb/s)",
-                      "title_link": "https://datadog.com/path/to/event",
-                      "text": "How does this look? @slack-ops - Sent by Julie Dodd",
-                      "image_url": "https://datadoghq.com/snapshot/path/to/snapshot.png",
-                      "color": "#764FA5"
-                  }
-              ]
+            "attachments": [
+              {
+                "fallback": "Network traffic (kb/s): How does this look? @slack-ops - Sent by Julie Dodd - https://datadog.com/path/to/event",
+                "title": "Network traffic (kb/s)",
+                "title_link": "https://datadog.com/path/to/event",
+                "text": "How does this look? @slack-ops - Sent by Julie Dodd",
+                "image_url": "https://datadoghq.com/snapshot/path/to/snapshot.png",
+                "color": "#764FA5"
+              }
+            ]
           })
       else
         msg.send "I haven't collected data on anybody yet"
