@@ -72,14 +72,19 @@ module.exports = (robot) ->
         robot.emit 'error', err
       else if reply
         sent = JSON.parse(reply.toString())
-        msg.send(reply.toString())
         if username != "everyone" and (!sent[username] or sent[username].average == undefined)
           msg.send "#{username} has no happiness average yet"
         else
+          combined = _.map(sent, (object, key) ->
+            ret = {user: key}
+            ret = _.merge(ret, object)
+            return ret
+          )
+          sorted = _.sortByOrder(combined, 'average', 'desc')
           message = []
-          for user, data of sent
-            if (user == username or username == "everyone") and data.average != undefined
-              message.push "#{user} has a happiness average of #{data.average}"
+          for user, data of sorted
+            if (data.user == username or username == "everyone") and data.average != undefined
+              message.push "#{data.user} has a happiness average of #{data.average}"
           msg.send(message.join('\n'))
       else
         msg.send "I haven't collected data on anybody yet"
