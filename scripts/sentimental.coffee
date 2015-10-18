@@ -26,7 +26,7 @@ Redis = require "redis"
 _     = require "lodash"
 
 module.exports = (robot) ->
-  robot.logger.info "Why does this work?" 
+
 # check for redistogo auth string for heroku users
 # see https://github.com/hubot-scripts/hubot-redis-brain/issues/3
   info = Url.parse process.env.REDISTOGO_URL or process.env.REDISCLOUD_URL or process.env.BOXEN_REDIS_URL or process.env.REDIS_URL or 'redis://localhost:6379'
@@ -85,7 +85,8 @@ module.exports = (robot) ->
           sorted = _.sortByOrder(combined, 'average', 'desc')
           attachment = {
             fallback: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average)}",
-            text: 'Happiness Index',
+            pretext: '*Mobility Labs Slack Happiness Index*',
+            text: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average)}",
             fields: [],
             color: 'good'
           }
@@ -100,9 +101,6 @@ module.exports = (robot) ->
           happinessField = {title: 'Rating', value: averages.join('\n'), short: true}
           attachment.fields.push(userField, happinessField)
           message = {attachments:[attachment]}
-          robot.logger.info 'Can you see me now?'
-          console.log('In the logs?')
-          console.log(message)
           msg.send(message)
       else
         msg.send "I haven't collected data on anybody yet"
