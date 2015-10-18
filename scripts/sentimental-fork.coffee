@@ -23,6 +23,7 @@ negativity = require('Sentimental').negativity
 
 Url   = require "url"
 Redis = require "redis"
+_     = require "lodash"
 
 module.exports = (robot) ->
 
