@@ -87,6 +87,7 @@ module.exports = (robot) ->
             fallback: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average)}",
             pretext: '*Mobility Labs Slack Happiness Index*',
             text: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average)}",
+            mrkdwn_in: ['pretext'],
             fields: [],
             color: 'good'
           }
