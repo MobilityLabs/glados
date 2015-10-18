@@ -82,7 +82,7 @@ module.exports = (robot) ->
             return ret
           )
           sorted = _.sortByOrder(combined, 'average', 'desc')
-          attachments = {
+          attachment = {
             fallback: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average)}",
             text: 'Happiness Index',
             fields: [],
@@ -97,7 +97,19 @@ module.exports = (robot) ->
               averages.push(average)
           userField = {title: 'User', value: users.join('\n'), short: true}
           happinessField = {title: 'Rating', value: averages.join('\n'), short: true}
-          attachments.fields.push(userField, happinessField)
-          msg.send({attachments: [attachments]})
+          attachment.fields.push(userField, happinessField)
+          // msg.send({attachments: [attachment]})
+          msg.send({
+              "attachments": [
+                  {
+                      "fallback": "Network traffic (kb/s): How does this look? @slack-ops - Sent by Julie Dodd - https://datadog.com/path/to/event",
+                      "title": "Network traffic (kb/s)",
+                      "title_link": "https://datadog.com/path/to/event",
+                      "text": "How does this look? @slack-ops - Sent by Julie Dodd",
+                      "image_url": "https://datadoghq.com/snapshot/path/to/snapshot.png",
+                      "color": "#764FA5"
+                  }
+              ]
+          })
       else
         msg.send "I haven't collected data on anybody yet"
