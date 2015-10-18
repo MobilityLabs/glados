@@ -20,7 +20,9 @@
     "hubot-shipit": "^0.1.2",
     "hubot-slack": "^3.3.0",
     "hubot-youtube": "^0.1.2",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "Sentimental": "0.0.4",
+    "redis": ">= 0.10.0"
   },
   "engines": {
     "node": "0.10.x"
