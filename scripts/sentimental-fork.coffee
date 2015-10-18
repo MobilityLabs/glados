@@ -85,7 +85,8 @@ module.exports = (robot) ->
           message = []
           for user, data of sorted
             if (data.user == username or username == "everyone") and data.average != undefined
-              message.push "#{data.user} has a happiness average of #{data.average}"
+              average = _.round(data.average, 2)
+              message.push "#{data.user} has happiness rating of #{average}"
           msg.send(message.join('\n'))
       else
         msg.send "I haven't collected data on anybody yet"
