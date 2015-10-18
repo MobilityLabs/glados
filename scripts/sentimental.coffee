@@ -89,7 +89,7 @@ module.exports = (robot) ->
             text: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average, 2)}",
             mrkdwn_in: ['pretext'],
             fields: [],
-            thumb_url: 'https://cdn.psychologytoday.com/sites/default/files/blogs/38/2008/12/2598-75772.jpg',
+            image_url: 'https://cdn.psychologytoday.com/sites/default/files/blogs/38/2008/12/2598-75772.jpg',
             color: 'good'
           }
           users = []
