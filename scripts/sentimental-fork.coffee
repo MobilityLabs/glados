@@ -98,7 +98,7 @@ module.exports = (robot) ->
           userField = {title: 'User', value: users.join('\n'), short: true}
           happinessField = {title: 'Rating', value: averages.join('\n'), short: true}
           attachment.fields.push(userField, happinessField)
-          msg.send({
+          robot.emit 'slack.attachment', {
             "attachments": [
               {
                 "fallback": "Network traffic (kb/s): How does this look? @slack-ops - Sent by Julie Dodd - https://datadog.com/path/to/event",
@@ -109,6 +109,6 @@ module.exports = (robot) ->
                 "color": "#764FA5"
               }
             ]
-          })
+          }
       else
         msg.send "I haven't collected data on anybody yet"
