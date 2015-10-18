@@ -98,7 +98,6 @@ module.exports = (robot) ->
           userField = {title: 'User', value: users.join('\n'), short: true}
           happinessField = {title: 'Rating', value: averages.join('\n'), short: true}
           attachment.fields.push(userField, happinessField)
-          // msg.send({attachments: [attachment]})
           msg.send({
             "attachments": [
               {
