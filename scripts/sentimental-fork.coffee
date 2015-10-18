@@ -72,6 +72,7 @@ module.exports = (robot) ->
         robot.emit 'error', err
       else if reply
         sent = JSON.parse(reply.toString())
+        msg.send(sent)
         if username != "everyone" and (!sent[username] or sent[username].average == undefined)
           msg.send "#{username} has no happiness average yet"
         else
