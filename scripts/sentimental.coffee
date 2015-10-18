@@ -84,9 +84,9 @@ module.exports = (robot) ->
           )
           sorted = _.sortByOrder(combined, 'average', 'desc')
           attachment = {
-            fallback: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average)}",
+            fallback: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average, 2)}",
             pretext: '*Mobility Labs Slack Happiness Index*',
-            text: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average)}",
+            text: "#{sorted[0].user} leads in happiness with #{_.round(sorted[0].average, 2)}",
             mrkdwn_in: ['pretext'],
             fields: [],
             color: 'good'
